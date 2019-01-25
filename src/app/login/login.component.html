@@ -22,7 +22,7 @@
       <div class=" row form-group">
         <div class="col-sm-8">
         <label style="color:blue" for="#bcd">Password</label>
-        <show-hide-password size="lg" class="fa-eye" btnStyle="primary" [btnOutline]="false">
+        <show-hide-password size="lg" class="fa fa-fw fa-eye" btnStyle="primary" [btnOutline]="false">
         <input type="password" name="password" class="form-control" id="bcd" [(ngModel)]=password #ref2="ngModel" required>
       </show-hide-password>
         <label *ngIf="ref2.touched && ref2.invalid">

@@ -1,7 +1,12 @@
-.field-icon{
-    float:right;
-    margin-left:-25px;
-    margin-top:-25px;
+
+.form-group{
     position:relative;
-    z-index:2;
+}
+.form-group input[type="password"] {
+    padding-right:30px
+}
+.form-group.glyphicon{
+    right:65px;
+    position:absolute;
+    top:12px;
 }

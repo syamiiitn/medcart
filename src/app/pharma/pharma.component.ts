@@ -41,6 +41,8 @@ export class PharmaComponent implements OnInit {
      this.price=price;
      this.expiry=expiry;
      this.username=username;
+
+
      this.ds.receiveFromPharma({category,medicine,price,expiry,quant,amount,username});
    }
 

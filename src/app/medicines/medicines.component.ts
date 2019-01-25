@@ -11,8 +11,8 @@ export class MedicinesComponent implements OnInit {
   constructor(private med:MasterService) {
     
    }
-  data:any[]=[];
-  data1:any[]=[];
+  data:object[]=[];
+  data1:object[]=[];
   category:string;
   medicine:string;
   price:string;

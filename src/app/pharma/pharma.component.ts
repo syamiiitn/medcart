@@ -12,7 +12,7 @@ import { CartService } from '../cart.service';
 export class PharmaComponent implements OnInit {
   data:any[]=[];
   data1:any={};
-  s:object={};
+  s:any={};
   quant:number=1;
   p:number;
   searchTerm:string;

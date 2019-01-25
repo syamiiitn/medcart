@@ -15,6 +15,11 @@ export class PharmaComponent implements OnInit {
   s:object={};
   quant:number=1;
   p:number;
+  searchTerm:string;
+  category:string;
+  medicine:string;
+  price:string;
+  expiry:string;
   constructor(private ms:MasterService,private ds:CartService,private ls:LoginService) {
    }
   ngOnInit() {

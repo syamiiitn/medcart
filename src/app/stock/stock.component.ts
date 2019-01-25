@@ -9,6 +9,7 @@ import { MasterService } from '../master.service';
 })
 export class StockComponent implements OnInit {
   s2:any[]=[];
+  searchTerm:string;
   constructor(private ms:MasterService) {
    }
 

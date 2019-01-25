@@ -8,6 +8,7 @@ import { DataService } from '../data.service';
 })
 export class TransactionsComponent implements OnInit {
   data:object[]=[];
+  searchTerm:string;
   constructor(private ds:DataService) { }
 
   ngOnInit() {

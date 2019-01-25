@@ -9,6 +9,7 @@ import { UserdetailsService } from '../userdetails.service';
 })
 export class UserdetailsComponent implements OnInit {
   data:object[]=[];
+  searchTerm:string;
   constructor(private ud:UserdetailsService) { }
 
   ngOnInit() {

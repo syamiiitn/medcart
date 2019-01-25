@@ -10,8 +10,8 @@ import { CartService } from '../cart.service';
   styleUrls: ['./pharma.component.css']
 })
 export class PharmaComponent implements OnInit {
-  data:object[]=[];
-  data1:object={};
+  data:any[]=[];
+  data1:any={};
   s:object={};
   quant:number=1;
   p:number;

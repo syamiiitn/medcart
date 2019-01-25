@@ -20,6 +20,7 @@ export class PharmaComponent implements OnInit {
   medicine:string;
   price:string;
   expiry:string;
+  username:string;
   constructor(private ms:MasterService,private ds:CartService,private ls:LoginService) {
    }
   ngOnInit() {
@@ -35,6 +36,11 @@ export class PharmaComponent implements OnInit {
 
    send(category,medicine,price,expiry,quant,amount,username)
    {
+     this.category=category;
+     this.medicine=medicine;
+     this.price=price;
+     this.expiry=expiry;
+     this.username=username;
      this.ds.receiveFromPharma({category,medicine,price,expiry,quant,amount,username});
    }
 

@@ -18,6 +18,7 @@ export class MedicinesComponent implements OnInit {
   price:string;
   quantity:string;
   expiry:string;
+  searchTerm:string;
    
   ngOnInit(){
     this.med.sendToMedicine().subscribe(temp=>{this.data=temp})

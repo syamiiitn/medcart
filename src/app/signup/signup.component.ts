@@ -8,6 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  firstname:string;
+  lastname:string;
+  username:string;
+  email:string;
+  password:string;
+  gender:string;
+  
   constructor(private register:RegisterService,private router:Router) { }
 
   ngOnInit() {

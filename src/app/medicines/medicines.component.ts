@@ -41,8 +41,9 @@ export class MedicinesComponent implements OnInit {
     this.expiry=" ";
     
   }
-  delete(v)
+  delete(v,p)
   {
+    this.data.splice(p,1);
    this.med.receiveFromMedicine2(v).subscribe(temp=>{this.data=temp}); 
   }
   edit(v)

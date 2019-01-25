@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
 import { LoginService } from '../login.service';
 import { CartService } from '../cart.service';
 
@@ -19,8 +18,9 @@ export class CartComponent implements OnInit {
     this.s1=this.ls.sendToPharma();
   }
 
-  delete(v)
+  delete(v,p)
   {
-    this.ds.receiveFromCart(v).subscribe(temp=>{this.s=temp})
+    this.s.splice(p,1);
+    this.ds.receiveFromCart(v)
   }
 }

@@ -82,6 +82,7 @@ var name={};
                     else if(success==true)
                     {
                         res.json("logged in successfully")
+                        name=req.body.username;
                         
                     }
                     else if(success==false){
@@ -110,13 +111,13 @@ app.post('/admin/medicines',(req,res,next)=>{
 })
 
 app.post('/user/pharma',(req,res,next)=>{    
-    dbo.collection(req.body.username).insertOne(req.body,(err,data)=>{
+    dbo.collection(name).insertOne(req.body,(err,data)=>{
         if(err)
         {
             console.log('err in pharma')
         }
         else{
-        name=req.body.username;
+        
         res.json("success")
         }
     })

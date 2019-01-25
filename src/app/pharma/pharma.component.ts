@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { MasterService } from '../master.service';
 import { LoginService } from '../login.service';
 import { CartService } from '../cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pharma',
@@ -21,7 +22,7 @@ export class PharmaComponent implements OnInit {
   price:string;
   expiry:string;
   username:string;
-  constructor(private ms:MasterService,private ds:CartService,private ls:LoginService) {
+  constructor(private ms:MasterService,private ds:CartService,private ls:LoginService,private router:Router) {
    }
   ngOnInit() {
      this.ms.sendToHomePharma().subscribe(temp=>{this.data=temp});
@@ -41,9 +42,14 @@ export class PharmaComponent implements OnInit {
      this.price=price;
      this.expiry=expiry;
      this.username=username;
-
-
-     this.ds.receiveFromPharma({category,medicine,price,expiry,quant,amount,username});
+    
+     if(username==this.username)
+     {
+      this.ds.receiveFromPharma({category,medicine,price,expiry,quant,amount,username});
+     }
+     else{
+      this.router.navigate(['home/login'])
+     }
    }
 
    inc(v)

@@ -20,13 +20,13 @@ export class CartService {
    return this.http.get('user/cart'); 
   }
 
-    receiveFromCart(v):Observable<any>
+    receiveFromCart(v)
     {
       var httpOptions={
         headers:new HttpHeaders({'content-type':'application/json'}),
         body:v
         }
-      return  this.http.delete('user/cart',httpOptions)
+    this.http.delete('user/cart',httpOptions)
     }
 
 }

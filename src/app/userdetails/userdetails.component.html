@@ -1,0 +1,25 @@
+<div class="row mt-3">
+<form #ref=ngForm>
+    <div class="form-group">
+    <input type="text" name="searchTerm" class="form-control ml-3 mt-3" placeholder="enter customername.." [(ngModel)]=searchTerm> 
+    </div>
+</form>
+</div>
+<div class="row mt-3"> 
+  <div class="col-2"></div>
+  <div class="col-9">
+    <table class="table table-striped table-bordered">
+        <thead>
+          <th style="color:blue">Customer name</th>
+          <th style="color:blue">Email id</th>
+          <th style="color:blue">username</th>
+        </thead>
+        <tr *ngFor="let i of data | search1:searchTerm">
+          <td>{{(i.firstname+" "+i.lastname)}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.username}}</td>
+        </tr>
+      </table>
+    </div>
+  <div class="col-1"></div>
+</div>

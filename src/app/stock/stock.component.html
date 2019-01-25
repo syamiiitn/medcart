@@ -1,0 +1,33 @@
+  
+        <div class="row pt-5" style="background-color: white">
+          <form #ref=ngForm>
+          <div class="form-group">
+          <input type="text" name="searchTerm" class="form-control ml-3" placeholder="search..." [(ngModel)]=searchTerm> 
+          </div>
+          </form>
+        </div>
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col-10">
+          <table class="table table-hover table-bordered">
+            <thead>
+              <th style="color:blue">Sno</th>
+              <th style="color:blue">Category</th>
+              <th style="color:blue">Medicine Name</th>
+              <th style="color:blue">Quantity</th>
+              <th style="color:blue">Expiry date</th>
+            </thead>
+            <tr *ngFor="let i of (s2 | search:searchTerm);let in=index">
+              <td>{{in+1}}</td>
+              <td>{{i.category}}</td>
+              <td>{{i.medicine}}</td>
+              <td>{{i.quantity}}</td>
+              <td>{{i.expiry}}</td>
+              <!-- <div *ngIf="i.quantity<=30" class="bg-danger border-0"> 
+                <p>alert! quantity of this tablet is less than 30....</p>
+               </div> -->
+            </tr>
+          </table>
+        </div>
+        <div class="col-1"></div>
+        </div>

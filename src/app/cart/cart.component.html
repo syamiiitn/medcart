@@ -1,0 +1,27 @@
+<div class="container-fluid jumbotron" style="padding-bottom: 500px">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <th class="text-primary">Sno</th>
+      <th class="text-primary">Category</th>
+      <th class="text-primary">Medicine</th>
+      <th class="text-primary">Price Per Tablet</th>
+      <th class="text-primary">Expiry</th>
+      <th class="text-primary">Quantity</th>
+      <th class="text-primary">Amount</th>
+      <th class="text-primary" >purchase</th>
+      <th class="text-primary">Delete</th>
+    </thead>
+    <tr *ngFor="let i of s;let in=index">
+      <td>{{in+1}}</td>
+      <td>{{i.category}}</td>
+      <td>{{i.medicine}}</td>
+      <td>{{i.price}}</td>
+      <td>{{i.expiry}}</td>
+      <td>{{i.quant}}</td>
+      <td>{{i.amount}}</td>
+      <td><button type="button" class="btn btn-success">Purchase</button></td>
+      <td><button type="button" (click)="delete(i)" class="btn btn-danger">X</button></td>
+    </tr>
+    
+  </table>
+</div>

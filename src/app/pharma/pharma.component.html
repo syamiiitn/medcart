@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <br/>
+    <div class="row ml-2" >
+        <form #ref="ngForm">
+        <input type="text" name="searchTerm" [(ngModel)]=searchTerm  class="form-control" placeholder="search medicines....">
+        </form> 
+        
+        <div class="col-1"></div>
+        <div class="col-11">
+            <br/>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <th>Sno</th>
+                    <th>Category</th>
+                    <th>Medicine Name</th>
+                    <th>Price per Tablet</th>
+                    <th>Expiry</th>
+                    <th>Add</th>
+                </thead>
+                <tr *ngFor="let i of (data | paginate:{itemsPerPage:5,currentPage:p } | search:searchTerm);let in=index" >
+                    <td>{{in+1}}</td>
+                    <td>{{i.category}}</td>
+                    <td>{{i.medicine}}</td>
+                    <td>{{i.price}}</td>
+                    <td>{{i.expiry}}</td>
+                    <td>
+                        <button type="button" data-target="#abc" data-toggle="modal" (click)="send1(i)" class="btn btn-success">Add to Cart</button>
+                    </td>
+                </tr>
+                    <div class="modal" id="abc">
+                        <div class="modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                            <table class="table table-striped table-bordered">
+                                                    <thead>
+                                                        <th>Category</th>
+                                                        <th>Medicine Name</th>
+                                                        <th>Price per Tablet</th>
+                                                        <th>Expiry</th>
+                                                        <th>Quantity</th>
+                                                        <th>Amount</th>
+                                                    </thead>
+                                                    <tr>
+                                                        <td>{{data1.category}}</td>
+                                                        <td>{{data1.medicine}}</td>
+                                                        <td>{{data1.price}}</td>
+                                                        <td>{{data1.expiry}}</td>
+                                                        <td><button type="button" (click)="dec(ref.value)">-</button>  
+                                                            <input type="number" name="quant" #ref style="width:40px" [value]="quant">
+                                                            <button type="button" (click)="inc(ref.value)">+</button> 
+                                                        </td>
+                                                        <td>{{ref.value*data1.price}}</td>
+                                                        <td>
+                                                            <button type="button" data-dismiss="modal" (click)="send(data1.category,data1.medicine,data1.price,data1.expiry,ref.value,(ref.value*data1.price),s.username)"  class="btn btn-success">send</button>
+                                                        </td>
+                                                    </tr>
+                                                </table> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+            </table>                
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                <pagination-controls (pageChange)="p=$event"></pagination-controls>
+                </div>
+                <div class="col-4"></div>   
+            </div>
+        </div>
+    </div>
+</div>

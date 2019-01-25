@@ -1,0 +1,35 @@
+<div class="row mt-3">
+    <form #ref=ngForm>
+        <div class="form-group">
+        <input type="text" name="searchTerm" class="form-control ml-3 mt-3" placeholder="Enter customer username" [(ngModel)]=searchTerm> 
+        </div>
+    </form>
+</div>
+<div class="row mt-3">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <table class="table table-striped table-bordered">
+          <thead>
+            <th style="color:blue">Sno</th>
+            <th style="color:blue">Customer Name</th>
+            <th style="color:blue">Product</th>
+            <th style="color:blue">Quantity</th>
+            <th style="color:blue">Date</th>
+            <th style="color:blue">Total amount</th>
+            <th style="color:blue">Get Receipt</th>
+          </thead>
+          <tr *ngFor="let i of data | search1:searchTerm">
+            <td>{{i.sno}}</td>
+            <td>{{i.customername}}</td>
+            <td>{{i.product}}</td>
+            <td>{{i.quantity}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.totalamount}}</td>
+            <td>
+              <button type="button" class="btn btn-success">Get</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    <div class="col-1"></div>
+  </div>

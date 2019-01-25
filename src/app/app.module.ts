@@ -25,6 +25,7 @@ import { SyrupsComponent } from './syrups/syrups.component';
 import { VitaminsComponent } from './vitamins/vitamins.component';
 import {HttpClientModule} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {ShowHidePasswordModule} from 'ngx-show-hide-password';
 import { SearchPipe } from './search.pipe';
 import { Search1Pipe } from './search1.pipe';
 
@@ -57,7 +58,7 @@ import { Search1Pipe } from './search1.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,HttpClientModule,NgxPaginationModule,
+    AppRoutingModule,FormsModule,HttpClientModule,NgxPaginationModule,ShowHidePasswordModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

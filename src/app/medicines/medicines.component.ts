@@ -12,7 +12,7 @@ export class MedicinesComponent implements OnInit {
     
    }
   data:object[]=[];
-  data1:object[]=[];
+  data1:object;
   category:string;
   medicine:string;
   price:string;

@@ -11,7 +11,7 @@ import { CartService } from '../cart.service';
 })
 export class PharmaComponent implements OnInit {
   data:object[]=[];
-  data1:object[]=[];
+  data1:object;
   s:object;
   quant:number=1;
   p:number;

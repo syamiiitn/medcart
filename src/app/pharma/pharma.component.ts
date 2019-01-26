@@ -42,14 +42,7 @@ export class PharmaComponent implements OnInit {
      this.price=price;
      this.expiry=expiry;
      this.username=username;
-    
-     if(username==this.username)
-     {
       this.ds.receiveFromPharma({category,medicine,price,expiry,quant,amount,username});
-     }
-     else{
-      this.router.navigate(['home/login'])
-     }
    }
 
    inc(v)

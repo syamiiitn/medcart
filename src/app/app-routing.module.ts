@@ -25,7 +25,7 @@ children:[
   {path:'signup',component:SignupComponent}
 ]},
 
-{path:'user',component:UserComponent,children:[{path:'',component:DiseasesComponent},
+{path:'user',component:UserComponent,children:[{path:'',component:DiseasesComponent},{path:'diseases',component:DiseasesComponent},
 {path:'pharma',component:PharmaComponent},
 {path:'cart',component:CartComponent},
 {path:'contactus',component:ContactusComponent}]},

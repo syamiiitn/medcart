@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-transactions',
@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
 export class TransactionsComponent implements OnInit {
   data:object[]=[];
   searchTerm:string;
-  constructor(private ds:DataService) { }
+  constructor() { }
 
   ngOnInit() {
     

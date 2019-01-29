@@ -25,19 +25,15 @@
             <a routerLink='contactus' class="nav-link text-light" style="font-size:20px">Contact Us</a>
           </li>
         <li>
-          <a  routerLink='cart' class="nav-link text-light float-right ml-5 hover" style="font-size:20px">
+          <a  routerLink='cart' class="nav-link text-light ml-5 hover" style="font-size:20px">
               <img src="assets/cart.png" width="30px" height="30px">
             </a>
         </li>
         <li class="nav-item ml-4">
-            <div class="dropdown">
-              <a  class="nav-link text-light  dropdown-toggle" style="font-size:20px" data-toggle="dropdown">
-                  user
-              </a>
-              <div class="dropdown-menu">
-                <a routerLink='' class="dropdown-item" style="width:60px">Logout</a>
-              </div>
-            </div>  
+              
+                <a (click)="logout()"  class="nav-link text-light" style="width:60px">Logout</a>
+              
+            
           </li>
         </ul>
       </div>

@@ -23,7 +23,7 @@ children:[
   {path:'pharma',component:PharmaComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent}
-]},
+]},{path:'home/pharma/login',component:LoginComponent},
 
 {path:'user',component:UserComponent,children:[{path:'',component:DiseasesComponent},{path:'diseases',component:DiseasesComponent},
 {path:'pharma',component:PharmaComponent},

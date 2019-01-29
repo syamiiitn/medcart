@@ -11,12 +11,12 @@ export class MasterService {
 
   receiveFromMedicine(v)
   {
-    this.http.post('admin/medicines',v).subscribe(temp=>alert(temp));
+    this.http.post('api/admin/medicines',v).subscribe(temp=>alert(temp));
   }
 
   receiveFromMedicine1(v)
   {
-   this.http.put('admin/medicines',v).subscribe(temp=>alert(temp));
+   this.http.put('api/admin/medicines',v).subscribe(temp=>alert(temp));
   }
 
     receiveFromMedicine2(v):Observable<any>
@@ -25,22 +25,22 @@ export class MasterService {
                     headers:new HttpHeaders({'content-type':'application/json'}),
                     body:v
       }
-     return  this.http.delete('admin/medicines',httpOptions)
+     return  this.http.delete('api/admin/medicines',httpOptions)
     }
 
   sendToMedicine():Observable<any>
   {
-    return this.http.get('admin/medicines');
+    return this.http.get('api/admin/medicines');
   }
 
   sendToStock():Observable<any>
   {
-    return this.http.get('admin/stock');
+    return this.http.get('api/admin/stock');
   }
 
   sendToHomePharma():Observable<any>
   {
-    return this.http.get('home/pharma');
+    return this.http.get('api/home/pharma');
   }
 
 

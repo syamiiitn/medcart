@@ -8,14 +8,14 @@ import { CartService } from '../cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  s:object[]=[];
+  s:any[];
   s1:object={};
   constructor(private ds:CartService,private ls:LoginService) { 
   }
   ngOnInit() {
 
-    this.ds.sendToCart(this.s1).subscribe(temp=>{this.s=temp})
-    this.s1=this.ls.sendToPharma();
+    this.ds.sendToCart(this.s1).subscribe(temp=>{this.s=temp 
+    console.log(temp)})
   }
 
   delete(v,p)

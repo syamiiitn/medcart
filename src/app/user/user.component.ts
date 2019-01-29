@@ -1,12 +1,23 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import * as jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
 })
-export class UserComponent  {
+export class UserComponent implements OnInit {
 
-  constructor( ){ }
+  constructor(private router:Router ){ }
+
+  ngOnInit(){
+    
+  }
+    logout()
+    {
+      localStorage.removeItem('id_Token')
+      this.router.navigate(['/home/login']);
+    }
 
 }

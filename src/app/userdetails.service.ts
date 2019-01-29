@@ -10,7 +10,7 @@ export class UserdetailsService {
   constructor(private http:HttpClient) { }
 
   sendToUserdetails():Observable<any>{
-    return this.http.get('admin/userdetails');
+    return this.http.get('api/admin/userdetails');
   }
 
 }

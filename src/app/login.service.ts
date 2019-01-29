@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
   data:object;
+  data1:string;
   constructor(private http:HttpClient) { 
     
   }
@@ -13,11 +14,10 @@ export class LoginService {
   receiveFromLogin(v):Observable<any>
   {
     this.data=v;
-    return this.http.post('home/login',v);
+    return this.http.post('api/home/login',v);
   }
-
-  sendToPharma()
-  {
-    return this.data;
-  }
+   sendToPharma()
+   {
+     return this.data;
+   }
 }

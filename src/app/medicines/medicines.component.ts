@@ -1,5 +1,4 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { DataService } from '../data.service';
 import { MasterService } from '../master.service';
 
 @Component({

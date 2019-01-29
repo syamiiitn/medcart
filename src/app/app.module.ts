@@ -23,11 +23,12 @@ import { DiseasesComponent } from './diseases/diseases.component';
 import { TabletsComponent } from './tablets/tablets.component';
 import { SyrupsComponent } from './syrups/syrups.component';
 import { VitaminsComponent } from './vitamins/vitamins.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {ShowHidePasswordModule} from 'ngx-show-hide-password';
 import { SearchPipe } from './search.pipe';
 import { Search1Pipe } from './search1.pipe';
+import { AuthorizationService } from './authorization.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,11 @@ import { Search1Pipe } from './search1.pipe';
     BrowserModule,
     AppRoutingModule,FormsModule,HttpClientModule,NgxPaginationModule,ShowHidePasswordModule.forRoot(),
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthorizationService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

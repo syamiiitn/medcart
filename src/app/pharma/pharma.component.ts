@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
 import { MasterService } from '../master.service';
 import { LoginService } from '../login.service';
 import { CartService } from '../cart.service';
@@ -13,7 +12,8 @@ import { Router } from '@angular/router';
 export class PharmaComponent implements OnInit {
   data:any[]=[];
   data1:any={};
-  s:any={};
+  s:any;
+  s1:string;
   quant:number=1;
   p:number;
   searchTerm:string;
@@ -22,28 +22,33 @@ export class PharmaComponent implements OnInit {
   price:string;
   expiry:string;
   username:string;
+  quantity:string;
   constructor(private ms:MasterService,private ds:CartService,private ls:LoginService,private router:Router) {
    }
   ngOnInit() {
      this.ms.sendToHomePharma().subscribe(temp=>{this.data=temp});
-     this.s=this.ls.sendToPharma()
-     console.log(this.s);
+      this.s=this.ls.sendToPharma();
    }
    send1(v)
    {
-     console.log(v);
     this.data1=v;
    }
 
-   send(category,medicine,price,expiry,quant,amount,username)
+   send(category,medicine,price,expiry,quantity,quant,amount)
    {
      this.category=category;
      this.medicine=medicine;
      this.price=price;
      this.expiry=expiry;
-     this.username=username;
-      this.ds.receiveFromPharma({category,medicine,price,expiry,quant,amount,username});
-   }
+
+    if(localStorage.getItem('id_Token')==null)
+    {
+      this.router.navigate(['/home/login'])
+    }
+    else{
+    this.ds.receiveFromPharma({category,medicine,price,expiry,quantity,quant,amount});
+    }
+    }
 
    inc(v)
   {

@@ -11,7 +11,7 @@ export class RegisterService {
   
   receiveFromRegistration(v):Observable<any>
   {
-    return this.http.post('/home/signup',v);
+    return this.http.post('api/home/signup',v);
   }
 
 }

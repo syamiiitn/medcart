@@ -27,7 +27,6 @@ let checkToken=(req,res,next)=>{
    //Express headers are auto converted to lowercase
    
    let token=req.headers['x-access-token'] || req.headers['authorization']
-    console.log(token);
    if(token===undefined)
    {
        return res.json({message:'no token found'})
@@ -94,7 +93,7 @@ app.post('/home/signup',(req,res,next)=>{
  var s='secrethere';
 
  app.post('/home/login',(req,res,next)=>{
-    dbo.collection('registration').find({"username":req.body.username}).toArray((err,data)=>{
+    dbo.collection('registration').find({username:req.body.username}).toArray((err,data)=>{
         if(err)
         {
             console.log('err......')
@@ -109,7 +108,7 @@ app.post('/home/signup',(req,res,next)=>{
                     }
                     else if(success==true)
                     {
-                        var jwtBearerToken=jwt.sign({username:req.body.username},s,{expiresIn:604800})
+                        var jwtBearerToken=jwt.sign({username:req.body.username},s,{expiresIn:6000})
                         
                         res.json({
                             idToken:jwtBearerToken
@@ -246,17 +245,7 @@ app.get('/home/pharma',(req,res,next)=>{
                 console.log('err in delete')
             }
             else{
-                dbo.collection('medicinecollection').find({}).toArray((err,data)=>{
-                    if(err)
-                    {
-                        console.log('err in data')
-                    }
-                    else
-                    {
-                        res.send(data);
-                        res.json("success")
-                    }
-                })
+                res.json("success")
             }
         })
     })
@@ -269,19 +258,9 @@ app.get('/home/pharma',(req,res,next)=>{
             }
             else
             {
-                dbo.collection(req.decoded['username']).find({}).toArray((err,data)=>{
-                    if(err)
-                    {
-                        console.log("errr...in cart")
-                    }
-                    else{
-                     
-                    res.send(data)
                     res.json("success")      
-                }
+             }
             })
-            }
-        })
         })
 
         module.exports=app;

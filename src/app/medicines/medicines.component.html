@@ -47,7 +47,7 @@
           <th style="color:blue">Delete</th>
           <th style="color:blue">Edit</th>
         </thead>
-        <tr *ngFor="let i of (data | search:searchTerm);let in=index">
+        <tr *ngFor="let i of (data | paginate:{itemsPerPage:5,currentPage:p } | search:searchTerm);let in=index">
           <td>{{in+1}}</td>
           <td>{{i.category}}</td>
           <td>{{i.medicine}}</td>

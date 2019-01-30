@@ -18,7 +18,8 @@ export class MedicinesComponent implements OnInit {
   quantity:string;
   expiry:string;
   searchTerm:string;
-   
+  p:number;
+  
   ngOnInit(){
     this.med.sendToMedicine().subscribe(temp=>{this.data=temp})
   }
@@ -43,7 +44,7 @@ export class MedicinesComponent implements OnInit {
   delete(v,p)
   {
     this.data.splice(p,1);
-   this.med.receiveFromMedicine2(v).subscribe(temp=>{this.data=temp}); 
+   this.med.receiveFromMedicine2(v).subscribe(temp=>(temp)); 
   }
   edit(v)
   {

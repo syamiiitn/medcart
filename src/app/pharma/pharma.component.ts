@@ -12,8 +12,6 @@ import { Router } from '@angular/router';
 export class PharmaComponent implements OnInit {
   data:any[]=[];
   data1:any={};
-  s:any;
-  s1:string;
   quant:number=1;
   p:number;
   searchTerm:string;
@@ -23,11 +21,11 @@ export class PharmaComponent implements OnInit {
   expiry:string;
   username:string;
   quantity:string;
-  constructor(private ms:MasterService,private ds:CartService,private ls:LoginService,private router:Router) {
+  amount:number;
+  constructor(private ms:MasterService,private ds:CartService,private router:Router) {
    }
   ngOnInit() {
      this.ms.sendToHomePharma().subscribe(temp=>{this.data=temp});
-      this.s=this.ls.sendToPharma();
    }
    send1(v)
    {

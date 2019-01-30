@@ -15,18 +15,20 @@ export class CartService {
     this.http.post('api/user/pharma',v).subscribe();
   }
 
-  sendToCart(v):Observable<any>
+  sendToCart():Observable<any>
   {
    return this.http.get('api/user/cart'); 
   }
 
-    receiveFromCart(v)
+    receiveFromCart(v):Observable<any>
     {
       var httpOptions={
         headers:new HttpHeaders({'content-type':'application/json'}),
         body:v
+        
         }
-    this.http.delete('api/user/cart',httpOptions)
+    
+    return  this.http.delete('api/user/cart',httpOptions)
     }
 
 }

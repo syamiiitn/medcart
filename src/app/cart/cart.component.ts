@@ -10,17 +10,18 @@ import { CartService } from '../cart.service';
 export class CartComponent implements OnInit {
   s:any[];
   s1:object={};
+  sum:number=0;
   constructor(private ds:CartService,private ls:LoginService) { 
   }
   ngOnInit() {
 
-    this.ds.sendToCart(this.s1).subscribe(temp=>{this.s=temp 
-    console.log(temp)})
+    this.ds.sendToCart().subscribe(temp=>{(this.s=temp);
+  })
   }
 
   delete(v,p)
   {
     this.s.splice(p,1);
-    this.ds.receiveFromCart(v)
+    this.ds.receiveFromCart(v).subscribe(temp=>{})
   }
 }

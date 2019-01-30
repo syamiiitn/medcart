@@ -11,6 +11,7 @@ export class CartComponent implements OnInit {
   s:any[];
   s1:object={};
   sum:number=0;
+  amount:any;
   constructor(private ds:CartService,private ls:LoginService) { 
   }
   ngOnInit() {

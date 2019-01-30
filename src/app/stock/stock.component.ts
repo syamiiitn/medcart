@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MasterService } from '../master.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stock',
@@ -9,11 +10,20 @@ import { MasterService } from '../master.service';
 export class StockComponent implements OnInit {
   s2:any[]=[];
   searchTerm:string;
-  constructor(private ms:MasterService) {
+  p:number;
+  constructor(private ms:MasterService,private router:Router) {
    }
 
   ngOnInit() {
-    this.ms.sendToStock().subscribe(temp=>{this.s2=temp})
+    this.ms.sendToStock().subscribe(temp=>{
+      if(temp['message']=="Tokken is not valid")
+      {
+       this.router.navigate(['home/login'])
+       }
+       else{
+    this.s2=temp
+       }
+  })
     console.log(this.s2);
   }
 

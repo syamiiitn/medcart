@@ -1,5 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { MasterService } from '../master.service';
+import { LoginService } from '../login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-medicines',
@@ -7,7 +9,7 @@ import { MasterService } from '../master.service';
   styleUrls: ['./medicines.component.css']
 })
 export class MedicinesComponent implements OnInit {
-  constructor(private med:MasterService) {
+  constructor(private med:MasterService,private router:Router) {
     
    }
   data:any[]=[];
@@ -21,7 +23,16 @@ export class MedicinesComponent implements OnInit {
   p:number;
   
   ngOnInit(){
-    this.med.sendToMedicine().subscribe(temp=>{this.data=temp})
+    this.med.sendToMedicine().subscribe(temp=>{
+      if(temp['message']=="Tokken is not valid")
+      {
+       this.router.navigate(['home/login'])
+       }
+      else{ 
+      this.data=temp
+    }
+    })
+    
   }
 
 

@@ -20,7 +20,6 @@ export class AuthorizationService implements HttpInterceptor{
         headers:req.headers.set('authorization','Bearer '+idToken)
       }
       );
-      console.log(cloned);
     return next.handle(cloned) ; 
     }
     else{

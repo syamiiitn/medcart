@@ -18,7 +18,7 @@
               <th style="color:blue">Quantity</th>
               <th style="color:blue">Expiry date</th>
             </thead>
-            <tr *ngFor="let i of (s2 | search:searchTerm);let in=index">
+            <tr *ngFor="let i of (s2 | paginate:{itemsPerPage:5,currentPage:p } | search:searchTerm);let in=index">
               <td>{{in+1}}</td>
               <td>{{i.category}}</td>
               <td>{{i.medicine}}</td>

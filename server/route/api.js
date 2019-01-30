@@ -108,9 +108,9 @@ app.post('/home/signup',(req,res,next)=>{
                     }
                     else if(success==true)
                     {
-                        var jwtBearerToken=jwt.sign({username:req.body.username},s,{expiresIn:6000})
+                        var jwtBearerToken=jwt.sign({username:req.body.username},s,{expiresIn:3600})
                         
-                        res.json({
+                         res.json({message:"logged in successfully",
                             idToken:jwtBearerToken
                         });
                     }

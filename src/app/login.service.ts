@@ -13,11 +13,14 @@ export class LoginService {
 
   receiveFromLogin(v):Observable<any>
   {
+    console.log(v)
     this.data=v;
     return this.http.post('api/home/login',v);
   }
+
    sendToPharma()
    {
      return this.data;
+     
    }
 }

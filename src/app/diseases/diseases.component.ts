@@ -10,6 +10,7 @@ export class DiseasesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

@@ -23,9 +23,7 @@ export class LoginComponent implements OnInit{
   }
 
 add(v){
-  this.login.receiveFromLogin(v).subscribe(res=>{
-    
-    localStorage.setItem('id_Token',res['idToken']);   
+    this.login.receiveFromLogin(v).subscribe(res=>{
     if(res=="Invalid username")
      {
        this.router.navigate(['home/login']);
@@ -36,16 +34,26 @@ add(v){
       this.router.navigate(['/home/login']);
       this.data2=!this.data2;
     }
-   else  {
-     this.s=res;
-      console.log(this.s)
-     if(v.username=="sivachandraraju" && v.password=="sivachandra@422"){
-      this.router.navigate(['admin']);
-     }
+   else if(res['message']==="logged in successfully") 
+   {
+      localStorage.setItem('id_Token',res['idToken']);
+      this.s=res;
+      if(res['idToken']!==null)
+        {
+        if(v.username=="sivachandraraju" && v.password=="sivachandra@422"){
+          this.router.navigate(['admin']);
+         }
     
-     else{
-       this.router.navigate(['user'])
-    } 
+        else{
+         this.router.navigate(['user'])
+         }
+        } 
+    else{
+      this.router.navigate(['home/login'])
+    }
+  }
+  else{
+    this.router.navigate(['home/login'])
   }
   })
   }
